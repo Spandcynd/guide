@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #202020;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 24px;
+  color: #dddddd;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.wrapper {
+  padding: 0 20% 20px 15%;
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 20px 5% 20px 5%;
+  }
+}
+@media (max-width: 776px) {
+  .wrapper {
+    padding: 20px 10px 20px 10px;
+  }
+}
+
+h2 {
+  margin: 0.5em 0;
+}
+
+hr {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+em {
+  font-weight: 700;
+}
+
+pre {
+  font-size: 0.8em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #aaaaaa;
+}
+
+[id*='scroll-'] {
+  margin-top: -120px;
+  padding-top: 120px;
+}
+
+.select::after {
+  content: '►';
+}
+.select:hover::after {
+  content: '▼';
+}
+
+header {
+  position: sticky;
+  top: 0;
+  padding: 1em 0;
+  background-color: #303030c9;
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+.ul {
+  display: flex;
+  justify-content: center;
+}
+.inner-ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.inner-ul:hover {
+  display: block;
+}
+
+.inner-ul li {
+  width: 100%;
+}
+
+.with-ul {
+  position: relative;
+}
+
+.hover-select:hover + .inner-ul {
+  display: block;
+}
+
+li {
+  background-color: #181818;
+  padding: 0.2em 0.4em;
+}
+li:hover {
+  background-color: #303030;
+}
+
+.up {
+  display: block;
+  padding: 2em;
+  background-color: #181818;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  transform: rotate(-25deg);
+}
+
+code {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.code {
+  display: block;
+  border: 1em solid #181818;
+  border-radius: 20px;
+  background-color: #181818;
+  font-size: 0.8em;
+  margin: 1em 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.code::-webkit-scrollbar {
+  height: 10px;
+}
+.code::-webkit-scrollbar-track {
+  background-color: #303030;
+  border-radius: 20px;
+}
+.code::-webkit-scrollbar-thumb {
+  background-color: #181818;
+  border: 2px solid #303030;
+  border-radius: 20px;
+}
+
+.comment {
+  color: rgb(32, 116, 32);
+  font-style: italic;
+  text-overflow: ellipsis;
+}
+
+.comment::before {
+  content: '//';
+  margin-right: 1em;
+}
+
+.attention {
+  background-color: rgba(255, 255, 0, 0.05);
+  border-left: 3px dashed rgba(255, 255, 0, 0.4);
+  padding: 0.3em 0.5em;
+}
+
+.attention-mark {
+  /* position: relative; */
+}
+.attention-mark::before {
+  content: '!';
+  display: inline-block;
+  font-size: 1.3em;
+  font-weight: 800;
+  background-color: rgba(255, 255, 0, 0.616);
+  padding: 0.05em 0.5em;
+  color: black;
+  margin-right: 0.5em;
+  /* position: absolute; */
+  /* top: 0; */
+  /* bottom: 0; */
+}
+
+.zavet::before {
+  content: 'Богомазов завіщає!.... :';
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.inline-code {
+  display: inline-block;
+  padding: 0.05em 0.2em;
+  background-color: #181818;
+  border-radius: 5px;
+  font-size: 0.85em;
+}
+
+.file-system {
+  border: 1em solid #181818;
+  border-radius: 20px;
+  background-color: #181818;
+  font-size: 0.8em;
+  margin: 1em 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: Arial;
+}
+.file-system-1 {
+}
+.file-system-2 {
+  margin-left: 1em;
+}
+.file-system-3 {
+  margin-left: 2em;
+}
+[class*='file-system-']::before {
+  content: '└ ';
+}
+[class*='file-system-'] > .folder:first-child::after {
+  content: '▼';
+  font-size: 0.8em;
+}
+[class*='file-system-'].folded > .folder:first-child::after {
+  content: '►';
+  font-size: 0.8em;
+}
+.folded > *:not(:first-child) {
+  display: none;
+}
+
+.file-text {
+  /* border-radius: 20px; */
+  background-color: #181818;
+  font-size: 0.8em;
+  margin: 1em 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-family: Arial;
+  counter-set: count;
+}
+
+.file-text__filename {
+  display: inline-block;
+  padding: 0.1em 0.7em;
+  background-color: gray;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: -10px;
+  position: relative;
+  /* overflow: hidden; */
+}
+.file-text__filename::after,
+.file-text__filename::before {
+  content: '';
+  display: inline-block;
+  height: 5em;
+  width: 3em;
+  background-color: #3b3b3b;
+  border-radius: 50px 50px 0 0;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+}
+
+.file-text__filename::after {
+  right: -3em;
+}
+.file-text__filename::before {
+  left: -3em;
+}
+
+.file-text__text {
+  border: 1em solid #181818;
+}
+
+.file-text .line::before {
+  counter-increment: count;
+  content: counter(count, decimal-leading-zero);
+  margin-right: 0.5em;
+}
+
+.folder {
+  color: #c0c2a1;
+}
+.file {
+  color: rgb(134, 145, 146);
+}

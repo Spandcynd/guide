@@ -1,0 +1,34 @@
+Java - мова що спочатку компілюється а потім інтерпретується, тому для запуску програми спочатку компілюємо її (команда javac) потім інтерпретуємо (команда java)
+
+1 ================================
+javac -d classes src\HelloWriter.java
+java -cp classes HelloWriter
+
+2 ================================
+javac -d classes -sourcepath src src\HelloWriterTest.java
+java -cp classes HelloWriterTest
+
+3 ================================
+так само як і у 2
+
+4 ================================
+javac -d classes -sourcepath src src\HelloWriterTest.java
+створюємо файл manifest.txt із вмістом:
+  Main-Class: HelloWriterTest (і 2 рази нажати ентер)
+jar cfmv program.jar manifest.txt -C classes HelloWriterTest.class classes\HelloWriter.class
+створюємо файл file.bat із вмістом:
+  @echo off
+  java -jar program.jar
+  pause
+створюємо ярлик цього файлу і перетаскуємо на робочий стіл
+запускаємо
+
+5 ================================
+javac -d classes -sourcepath src src\userinterface\HelloWriterTest.java
+java -cp classes userinterface.HelloWriterTest
+
+6 ================================
+javac -d classes src\model\HelloWriter.java
+jar cfv lib\file.jar -C classes model
+javac -d classes -cp lib\file.jar src\userinterface\HelloWriterTest.java
+java -cp classes userinterface.HelloWriterTest

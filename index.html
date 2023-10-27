@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,regular,italic,700,700italic"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Lab 1.0 guide</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="ul">
+          <li><a href="#scroll-intro">Вступ</a></li>
+          <li><a href="#scroll-main-commands">Основні команди</a></li>
+          <li><a href="#scroll-project-structure">Структура проєкту</a></li>
+          <li class="with-ul">
+            <div class="hover-select">Завдання</div>
+            <ul class="inner-ul hidden">
+              <li><a href="#scroll-task1">Завдання 1</a></li>
+              <li><a href="#scroll-task2">Завдання 2</a></li>
+              <li><a href="#scroll-task3">Завдання 3</a></li>
+              <li><a href="#scroll-task4">Завдання 4</a></li>
+              <li><a href="#scroll-task5">Завдання 5</a></li>
+              <li><a href="#scroll-task6">Завдання 6</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <a href="#scroll-intro" class="up">♂</a>
+      <main>
+        <h1 id="scroll-intro">Лабораторна робота 1.0. Методичка</h1>
+        <p>
+          Java - мова що спочатку <em>компілюється</em>, а потім <em>інтерпретується</em>*, тому для
+          запуску програми спочатку компілюємо її (команда <code class="inline-code">javac</code>)
+          потім інтерпретуємо (команда <code class="inline-code">java</code>). Також буде
+          використовуватися утиліта <code class="inline-code">jar</code> для архівування файлів.
+        </p>
+        <pre>* - інтерпретатор, віртуальна машина</pre>
+        <hr />
+        <h2 id="scroll-main-commands">Основні команди</h2>
+        <p>
+          Основний параметр команди javac - це шлях до файлу вихідного тексту, тобто файлу з
+          розширенням .java. В найпростішому випадку компіляція файла вихідного тексту робиться так:
+        </p>
+        <code class="code"> javac Hello.java </code>
+        <p>
+          Після компіляцій, в тій самій папці, що і файл .java, отримаємо відкомпільований файл
+          <span class="file">Hello.class</span>
+          <br />
+          Цей файл містить в собі класс з таким самим ім'ям, як і ім'я файлу без розширення. Щоб
+          запустити цей класс, потрібно написати команду <code class="inline-code">java</code>,
+          основний параметр якої це ім'я класу, який треба запустити.
+        </p>
+        <code class="code">java Hello </code>
+        <p>
+          Однак, нам знадобляться додаткові параметри (прапорці) для цих команд, щоб отримати
+          бажаний результат. <br />
+        </p>
+        <code class="code"
+          ><span class="comment">Додаткові параметри для команди javac</span><br />
+          -d папка <br />
+          -sourcepath папка <br />
+          -cp папка
+        </code>
+        <p>
+          Прапорець <code class="inline-code">-d</code> (англ. destination, місцепризначення)
+          приймає в якості параметра папку, в яку буде відкомпільовано файл(и) вихідного коду.
+          <br />
+          Прапорець <code class="inline-code">-sourcepath</code> приймає в якості параметра папку,
+          де компілятору потрібно буде шукати файли вихідного коду для компіляції (у випадку, коли
+          .java файлів декілька). <br />
+          Прапорець <code class="inline-code">-cp</code> вказує де треба шукати вже відкомпільовані
+          файли з розширенням .class (знадобиться в останньому завданні лабораторної роботи)
+        </p>
+        <code class="code"
+          ><span class="comment">Додаткові параметри для команди java</span><br />
+          -cp папка<br />
+        </code>
+        <p>
+          Прапорець <code class="inline-code">-cp</code> приймає в якості параметра папку, в якій
+          інтерпрататору джава треба шукати необхідний йому клас
+        </p>
+        <hr />
+        <h2 id="scroll-project-structure">Структура проєкту</h2>
+        <p>Кожен проєкт буде мати приблизно таку структуру:</p>
+        <div class="file-system">
+          <div class="file-system-1">
+            <span class="folder">Lab1.0.1</span>
+            <div class="file-system-2">
+              <span class="folder">classes</span>
+            </div>
+            <div class="file-system-2">
+              <span class="folder">src</span>
+            </div>
+          </div>
+        </div>
+        <p>
+          В <span class="folder">src</span> будуть зеберігатися файли вихідного коду .java, а в
+          <span class="folder">classes</span> відкомпільовані файли .class <br />
+        </p>
+        <div class="attention">
+          <span class="attention-mark"></span>Всі команди треба виконувати з кореню проєкту, тобто
+          папки Lab1.0.x
+        </div>
+        <code class="code">D:\learning\programs\Lab1.0\Lab1.0.1>javac -d cla...</code>
+        <hr />
+        <!--  -->
+        <h2 id="scroll-tasks">Завдання</h2>
+        <h3 id="scroll-task1">Завдання 1</h3>
+        <div class="zavet">Розробити консольну програму Hello у вигляді одного класу.</div>
+        <code class="code"> javac -d classes src\HelloWriter.java <br /> </code>
+        <p>
+          Ця команда спочатку відкомпілює файл
+          <span class="file">HelloWriter.java</span>, який розміщується в папці
+          <span class="folder">src</span>, і збереже результат компіляції в папці
+          <span class="folder">classes</span>
+        </p>
+        <p>Після виконаних команд структура проєкту буде виглядати так:</p>
+        <div class="file-system">
+          <div class="file-system-1">
+            <span class="folder">Lab1.0.1</span>
+            <div class="file-system-2">
+              <span class="folder">classes</span>
+              <div class="file-system-3"><span class="file">HelloWriter.class</span></div>
+            </div>
+            <div class="file-system-2">
+              <span class="folder">src</span>
+              <div class="file-system-3"><span class="file">HelloWriter.java</span></div>
+            </div>
+          </div>
+        </div>
+        <p>Після компіляцій запускаємо програму</p>
+        <code class="code"> java -cp classes HelloWriter </code>
+        <h3 id="scroll-task2">Завдання 2</h3>
+        <div class="zavet">Розробити консольну програму Hello у вигляді двох класів.</div>
+        <code class="code"
+          >javac -d classes -sourcepath src src\HelloWriterTest.java <br />java -cp classes
+          HelloWriterTest</code
+        >
+        <h3 id="scroll-task3">Завдання 3</h3>
+        <div class="zavet">
+          Розробити програму Hello з діалоговим вікном у вигляді двох класів. Спитати у користувача
+          ім’я та привітати його за ім’ям.
+        </div>
+        <a href="#scroll-task2">Так само, як і у другому завданні</a>
+        <h3 id="scroll-task4">Завдання 4</h3>
+        <div class="zavet">
+          Створити виконуваний jar-файл. Створити bat-файл для його запуску і ярлик для запуску
+          bat-файлу на робочому столі.
+        </div>
+        <code class="code">javac -d classes -sourcepath src src\HelloWriterTest.java</code>
+        створюємо файл <span class="file">manifest.txt</span> із вмістом: Main-Class:
+        HelloWriterTest (і 2 рази нажати ентер)
+        <div class="file-text">
+          <div class="file-text__filename">manifest.txt</div>
+          <div class="file-text__text">
+            <div class="line">Main-Class: HelloWriterTest</div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </div>
+        <h3 id="scroll-task5">Завдання 5</h3>
+        <h3 id="scroll-task6">Завдання 6</h3>
+        4 ================================ javac -d classes -sourcepath src src\HelloWriterTest.java
+        створюємо файл manifest.txt із вмістом: Main-Class: HelloWriterTest (і 2 рази нажати ентер)
+        jar cfmv program.jar manifest.txt -C classes HelloWriterTest.class classes\HelloWriter.class
+        створюємо файл file.bat із вмістом: @echo off java -jar program.jar pause створюємо ярлик
+        цього файлу і перетаскуємо на робочий стіл запускаємо 5 ================================
+        javac -d classes -sourcepath src src\userinterface\HelloWriterTest.java java -cp classes
+        userinterface.HelloWriterTest 6 ================================ javac -d classes
+        src\model\HelloWriter.java jar cfv lib\file.jar -C classes model javac -d classes -cp
+        lib\file.jar src\userinterface\HelloWriterTest.java java -cp classes
+        userinterface.HelloWriterTest
+      </main>
+    </div>
+    <script>
+      document.querySelectorAll("[class*='file-system-']").forEach(el =>
+        el.addEventListener('click', e => {
+          e.stopPropagation();
+          el.classList.toggle('folded');
+        })
+      );
+    </script>
+  </body>
+</html>
