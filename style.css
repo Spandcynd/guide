@@ -118,17 +118,6 @@ li:hover {
   background-color: #303030;
 }
 
-.up {
-  display: block;
-  padding: 2em;
-  background-color: #181818;
-  border-radius: 50%;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  transform: rotate(-25deg);
-}
-
 code {
   -webkit-user-select: none;
   -khtml-user-select: none;
