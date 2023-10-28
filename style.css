@@ -82,6 +82,22 @@ header {
   margin-left: 1em;
 }
 
+.with-label {
+  overflow: hidden;
+  position: relative;
+}
+.with-label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  background-color: yellow;
+  transform: rotate(45deg);
+  right: -12px;
+  top: -12px;
+}
+
 .hidden {
   display: none;
 }
