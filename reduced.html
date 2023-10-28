@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,regular,italic,700,700italic"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
+    <title>Lab 1.0 guide</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="ul">
+          <li><a href="index.html">Повна версія</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="wrapper">
+      <main>
+        <h1>Лабораторна робота 1.0. Методичка по компіляції і запуску</h1>
+        <hr />
+        <h3>Завдання 1</h3>
+        <div class="problem">Розробити консольну програму Hello у вигляді одного класу.</div>
+        <code class="code">
+          javac -d classes src\HelloWriter.java<br />java -cp classes HelloWriter
+        </code>
+        <h3>Завдання 2</h3>
+        <div class="problem">Розробити консольну програму Hello у вигляді двох класів.</div>
+        <code class="code"
+          >javac -d classes -sourcepath src src\HelloWriterTest.java<br />
+          java -cp classes HelloWriterTest</code
+        >
+        <h3>Завдання 3</h3>
+        <div class="problem">
+          Розробити програму Hello з діалоговим вікном у вигляді двох класів. Спитати у користувача
+          ім’я та привітати його за ім’ям.
+        </div>
+        <p>Див. 2 завдання</p>
+        <h3>Завдання 4</h3>
+        <div class="problem">
+          Створити виконуваний jar-файл. Створити bat-файл для його запуску і ярлик для запуску
+          bat-файлу на робочому столі.
+        </div>
+        <p>
+          Створюємо файл manifest.txt із вмістом Main-Class: HelloWriterTest, і створюємо 2 пустих
+          рядки щоб було так:
+        </p>
+        <img src="screen1.png" alt="img" />
+        <p>Далі виконуємо команди:</p>
+        <code class="code"
+          >javac -d classes -sourcepath src src\HelloWriterTest.java <br />
+          jar cfmv app.jar manifest.txt -C classes HelloWriterTest.class
+          classes\HelloWriter.class</code
+        >
+        <p>Можна запустити:</p>
+        <code class="code">java -jar app.jar</code>
+        <p>
+          Тепер, в корні проєкту, створюємо <span class="file">run.bat</span> який буде запускати
+          проєкт:
+        </p>
+        <img src="screen2.png" alt="img" />
+        <p>
+          В провіднику створюємо ярлик цього файлу і переносимо ярлик на робочий стіл. Запускаємо
+          дабл-кліком.
+        </p>
+        <h3 id="scroll-task5">Завдання 5</h3>
+        <div class="problem">
+          Розробити консольну програму Hello у вигляді двох класів, розміщених в різних пакетах.
+        </div>
+        <code class="code">
+          javac -d classes -sourcepath src src\nau\ui\HelloWriterTest.java <br />
+          java -cp classes nau.ui.HelloWriterTest
+        </code>
+        <h3 id="scroll-task6">Завдання 6</h3>
+        <div class="problem">
+          Для консольної програми Hello у вигляді двох класів, розміщених в різних пакетах, створити
+          jar-файл для класа-сервера. Розташувати його в директорії lib проекту.
+        </div>
+        <div>
+          <ol>
+            <li>Створюємо в корні проєкту директорію <span class="folder">lib</span>.</li>
+            <li>
+              Компілюємо файл серверу (<span class="file">HelloWriter.java</span>) в папку
+              <span class="folder">classes</span>
+            </li>
+            <li>Архівуємо весь пакет з відкомпільованим файлом</li>
+            <li>
+              Компілюємо файл клієнта (<span class="file">HelloWriterTest.java</span>)
+              використовуючи вже відкомпільований файл, що знаходиться в архіві (.jar файл)
+            </li>
+            <li>Запускаємо повністю відкомпільований проєкт</li>
+          </ol>
+        </div>
+        <code class="code">
+          javac -d classes src\nau\model\HelloWriter.java <br />
+          jar cfv lib\library.jar -C classes nau <br />
+          javac -d classes -cp lib\library.jar src\nau\ui\HelloWriterTest.java <br />
+          java -cp classes nau.ui.HelloWriterTest
+        </code>
+      </main>
+    </div>
+    <script>
+      document.querySelectorAll("[class*='file-system-']").forEach(el =>
+        el.addEventListener('click', e => {
+          e.stopPropagation();
+          el.classList.toggle('folded');
+        })
+      );
+    </script>
+  </body>
+</html>

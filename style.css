@@ -78,6 +78,10 @@ header {
   background-color: #303030c9;
 }
 
+.margin {
+  margin-left: 1em;
+}
+
 .hidden {
   display: none;
 }
@@ -110,12 +114,16 @@ ul {
   display: block;
 }
 
-li {
+ul li {
   background-color: #181818;
   padding: 0.2em 0.4em;
 }
-li:hover {
+ul li:hover {
   background-color: #303030;
+}
+
+ol {
+  padding-left: 2em;
 }
 
 code {
@@ -180,15 +188,10 @@ code {
   padding: 0.05em 0.5em;
   color: black;
   margin-right: 0.5em;
-  /* position: absolute; */
-  /* top: 0; */
-  /* bottom: 0; */
 }
 
-.zavet::before {
-  content: 'Богомазов завіщає!.... :';
-  display: inline-block;
-  margin-right: 0.5em;
+.problem {
+  font-size: 1.1em;
 }
 
 .inline-code {
@@ -219,6 +222,7 @@ code {
 }
 [class*='file-system-']::before {
   content: '└ ';
+  vertical-align: top;
 }
 [class*='file-system-'] > .folder:first-child::after {
   content: '▼';
@@ -230,6 +234,10 @@ code {
 }
 .folded > *:not(:first-child) {
   display: none;
+}
+
+.file-system__stacker {
+  display: inline-block;
 }
 
 .file-text {
